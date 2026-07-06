@@ -1,0 +1,984 @@
+<!-- @dsCard group="Site web" viewport="1280x820" name="Accueil" subtitle="Page d'accueil Superformateur" -->
+<!-- @startingPoint section="Site web" subtitle="Page d'accueil Superformateur" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Superformateur — Deviens le formateur qu'on ne remplace pas</title>
+<meta name="description" content="Superformateur accompagne les formateurs et consultants indépendants à ne plus être interchangeables — ni avec un autre expert, ni avec l'IA. Deux volets : pédagogie et business.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Superformateur">
+<meta property="og:title" content="Superformateur — Deviens le formateur qu'on ne remplace pas">
+<meta property="og:description" content="Superformateur accompagne les formateurs et consultants indépendants à ne plus être interchangeables — ni avec un autre expert, ni avec l'IA. Deux volets : pédagogie et business.">
+<meta property="og:image" content="assets/logo-mark.png">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  section[id],div[id].anchor{scroll-margin-top:92px;}
+  body{margin:0;font-family:var(--font-body);background:var(--cream-200);color:var(--ink-900);}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .lucide{width:1em;height:1em;stroke-width:2.25;vertical-align:middle;}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(251,246,228,0.85);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--line-100);}
+  .navrow{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--teal-600);}
+  .brand img{width:38px;height:38px;border-radius:11px;}
+  .navlinks{display:flex;gap:30px;align-items:center;font-size:15.5px;font-weight:500;}
+  .navlinks a{color:var(--ink-700);transition:color .13s;}
+  .navlinks a:hover{color:var(--teal-600);}
+  .hasmenu{position:relative;display:flex;align-items:center;}
+  .hasmenu>a{display:inline-flex;align-items:center;gap:5px;color:var(--ink-700);cursor:pointer;}
+  .hasmenu:hover>a{color:var(--teal-600);}
+  .hasmenu::after{content:"";position:absolute;top:100%;left:-10px;right:-10px;height:18px;}
+  .menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--cream-50);border:2px solid var(--ink-900);border-radius:16px;box-shadow:5px 6px 0 var(--ink-900);padding:8px;width:300px;opacity:0;visibility:hidden;transition:opacity .15s var(--ease-out);z-index:40;}
+  .hasmenu:hover .menu{opacity:1;visibility:visible;}
+  .menu a{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:11px;color:var(--ink-900);transition:background .12s;}
+  .menu a:hover{background:var(--cream-200);}
+  .menu .mi{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid var(--ink-900);}
+  .menu b{font-family:var(--font-display);font-weight:700;font-size:15.5px;display:block;letter-spacing:-0.01em;margin-bottom:2px;}
+  .menu b{margin-bottom:0;}
+  .menu small{font-size:13px;color:var(--ink-400);font-family:var(--font-body);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;border:2px solid transparent;cursor:pointer;transition:transform .13s var(--ease-spring),background .13s;}
+  .btn-solid{background:var(--teal-600);color:var(--cream-100);}
+  .btn-solid:hover{transform:translateY(-2px);}
+  .btn-accent{background:var(--coral);color:#fff;}
+  .btn-accent:hover{transform:scale(1.04);}
+  .btn-outline{background:transparent;color:var(--ink-900);border-color:var(--ink-900);}
+  .btn-outline:hover{background:var(--ink-900);color:var(--cream-100);}
+  .btn-lg{padding:16px 30px;font-size:17px;}
+
+  /* HERO */
+  .hero{padding:70px 0 40px;position:relative;overflow:hidden;}
+  .ey{font-family:var(--font-mono);font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);}
+  .hero h1{font-family:var(--font-display);font-weight:800;font-size:74px;line-height:0.98;letter-spacing:-0.03em;margin:18px 0 0;max-width:16ch;}
+  .hero h1 .hl{position:relative;white-space:nowrap;}
+  .hero h1 .hl::after{content:"";position:absolute;left:-2%;right:-2%;bottom:6px;height:20px;background:var(--gold);z-index:-1;border-radius:4px;}
+  .hero p.lead{font-size:21px;line-height:1.55;color:var(--ink-500);max-width:52ch;margin:26px 0 0;font-weight:500;}
+  .hero .cta-row{display:flex;gap:14px;align-items:center;margin-top:34px;flex-wrap:wrap;}
+  .hero .note{font-family:var(--font-mono);font-size:13px;color:var(--ink-400);flex-basis:100%;margin-top:2px;}
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.9;z-index:0;}
+  .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,82,83,.13) 1.5px,transparent 1.6px);background-size:22px 22px;-webkit-mask-image:linear-gradient(115deg,#000,transparent 58%);mask-image:linear-gradient(115deg,#000,transparent 58%);z-index:0;pointer-events:none;}
+  .emblem{position:absolute;right:-8px;bottom:-40px;height:118%;width:46%;max-width:540px;z-index:1;display:flex;align-items:flex-end;justify-content:flex-end;pointer-events:none;}
+  .emblem svg{height:100%;width:auto;}
+  .emblem .spin{transform-box:fill-box;transform-origin:center;animation:emblemSpin 26s linear infinite;}
+  @keyframes emblemSpin{to{transform:rotate(360deg);}}
+  .herokick{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--coral);background:var(--coral-soft);border:2px solid var(--ink-900);border-radius:999px;padding:7px 15px;box-shadow:2px 3px 0 var(--ink-900);margin-bottom:22px;}
+  .herokick svg{width:15px;height:15px;}
+  @media (max-width:960px){.emblem{width:40%;opacity:.96;}}
+  @media (max-width:720px){.emblem{display:none;}}
+  .hero .ey,.hero h1,.hero .lead,.hero .cta-row{position:relative;z-index:2;}
+
+  /* marquee band */
+  .band{margin-top:56px;background:var(--teal-600);border-top:2.5px solid var(--ink-900);border-bottom:2.5px solid var(--ink-900);overflow:hidden;}
+  .band .track{display:flex;gap:44px;padding:16px 0;white-space:nowrap;font-family:var(--font-mono);font-size:15px;color:var(--cream-100);align-items:center;width:max-content;animation:marquee 30s linear infinite;}
+  .band:hover .track{animation-play-state:paused;}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .band .track span{display:inline-flex;align-items:center;gap:10px;}
+  .dot{color:var(--gold);}
+
+  /* SECTION */
+  section{padding:80px 0;}
+  .shead{display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:60ch;}
+  .shead h2{font-family:var(--font-display);font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-0.025em;margin:0;}
+  .shead p{font-size:18px;line-height:1.6;color:var(--ink-500);margin:0;}
+
+  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .offer{display:flex;flex-direction:column;gap:14px;padding:28px;background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:22px;box-shadow:0 6px 20px -8px rgba(16,32,30,.18);transition:transform .24s var(--ease-spring),box-shadow .24s;}
+  .offer:hover{transform:translateY(-5px);box-shadow:6px 8px 0 var(--ink-900);}
+  .offer.feat{box-shadow:6px 8px 0 var(--ink-900);}
+  .audcard{display:flex;flex-direction:column;gap:16px;padding:32px;background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:24px;box-shadow:6px 8px 0 var(--ink-900);text-decoration:none;color:inherit;transition:transform .24s var(--ease-spring);}
+  .audcard:hover{transform:translateY(-6px);}
+  .audgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+  .vrow{display:flex;gap:12px;align-items:flex-start;}
+  .vpill{flex-shrink:0;min-width:82px;text-align:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:999px;border:2px solid var(--ink-900);}
+  .vrow span.t{font-size:14.5px;line-height:1.45;color:var(--ink-700);}
+  .fchip{font-family:var(--font-mono);font-size:12px;padding:6px 12px;border-radius:999px;border:2px solid var(--ink-900);background:var(--cream-100);}
+  .audlink{margin-top:24px;align-self:flex-start;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;border:2px solid var(--ink-900);transition:transform .13s var(--ease-spring);}
+  .audcard:hover .audlink{transform:translateX(3px);}
+  .obar{height:9px;width:56px;border-radius:999px;}
+  .oe{font-family:var(--font-mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;}
+  .offer h3{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.06;letter-spacing:-0.02em;margin:0;}
+  .offer p{font-size:15.5px;line-height:1.55;color:var(--ink-500);margin:0;flex:1;}
+  .otags{display:flex;flex-wrap:wrap;gap:7px;}
+  .otag{font-family:var(--font-mono);font-size:11.5px;padding:4px 10px;border-radius:999px;background:var(--cream-300);color:var(--ink-700);}
+  .oprice{display:flex;align-items:baseline;gap:8px;}
+  .oprice b{font-family:var(--font-display);font-weight:800;font-size:29px;white-space:nowrap;}
+  .oprice span{font-size:14px;color:var(--ink-400);}
+  .olink{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:999px;font-weight:600;font-size:15px;border:2px solid var(--ink-900);}
+
+  /* STATS on teal */
+  .statsband{background:var(--teal-600);border-radius:32px;border:2.5px solid var(--ink-900);padding:56px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;box-shadow:8px 10px 0 var(--ink-900);}
+  .stat b{display:block;font-family:var(--font-mono);font-weight:700;font-size:48px;line-height:1;color:var(--gold);white-space:nowrap;}
+  .stat span{font-size:15px;color:var(--teal-200);}
+
+  /* BLOG */
+  .bloggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .art{display:flex;flex-direction:column;background:var(--cream-50);border:2px solid var(--ink-900);border-radius:22px;overflow:hidden;transition:transform .24s var(--ease-spring),box-shadow .24s;}
+  .art:hover{transform:translateY(-5px);box-shadow:6px 8px 0 var(--ink-900);}
+  .art .thumb{height:150px;border-bottom:2px solid var(--ink-900);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;color:var(--ink-400);}
+  .art .body{padding:20px;display:flex;flex-direction:column;gap:10px;}
+  .cat{align-self:flex-start;font-family:var(--font-mono);font-size:11.5px;padding:4px 11px;border-radius:999px;}
+  .art h3{font-family:var(--font-display);font-weight:700;font-size:20px;line-height:1.14;margin:0;letter-spacing:-0.01em;}
+  .art .meta{display:flex;gap:9px;font-family:var(--font-mono);font-size:12px;color:var(--ink-400);}
+
+  /* NEWSLETTER */
+  .nlcard{background:var(--ink-900);border-radius:32px;padding:60px 56px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;position:relative;overflow:hidden;}
+  .nlcard h2{font-family:var(--font-display);font-weight:800;font-size:42px;line-height:1.02;letter-spacing:-0.025em;color:var(--cream-100);margin:0;max-width:16ch;}
+  .nlcard p{color:var(--teal-200);font-size:17px;line-height:1.55;margin:14px 0 0;max-width:44ch;}
+  .nl{display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(255,253,232,.08);border:2px solid var(--teal-400);width:420px;max-width:100%;}
+  .nl input{flex:1;border:none;background:transparent;color:var(--cream-100);padding:0 16px;font-size:16px;font-family:var(--font-body);outline:none;}
+  .nl input::placeholder{color:var(--teal-300);}
+  .nl button,.nl a{border:none;background:var(--coral);color:#fff;padding:13px 24px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;font-family:var(--font-body);text-decoration:none;display:inline-flex;align-items:center;}
+  .subsig{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:13px;color:var(--gold);margin-bottom:16px;}
+
+  /* FOOTER */
+  footer{background:var(--teal-600);border-top:2.5px solid var(--ink-900);padding:60px 0 32px;color:var(--cream-100);margin-top:80px;}
+  .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--teal-400);}
+  .fbrand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--cream-100);}
+  .fbrand img{width:40px;height:40px;border-radius:12px;}
+  .fcol h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:0 0 16px;}
+  .fcol a{display:block;color:var(--teal-200);font-size:15px;margin-bottom:11px;transition:color .13s;}
+  .fcol a:hover{color:var(--cream-100);}
+  .fbot{display:flex;justify-content:space-between;padding-top:24px;font-family:var(--font-mono);font-size:12.5px;color:var(--teal-300);}
+
+  /* ===== CONVERSION SECTIONS ===== */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .pain{background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:20px;padding:26px;box-shadow:4px 5px 0 var(--ink-900);}
+  .pain .pi{width:44px;height:44px;border-radius:12px;border:2px solid var(--ink-900);background:var(--coral-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .pain .pi .lucide{width:22px;height:22px;color:var(--coral-ink);}
+  .pain b{display:block;font-family:var(--font-display);font-weight:700;font-size:19px;line-height:1.15;letter-spacing:-0.01em;margin-bottom:8px;}
+  .pain p{font-size:15px;line-height:1.55;color:var(--ink-500);margin:0;}
+  .qual{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;max-width:900px;margin:0 auto;}
+  .qi{display:flex;gap:13px;align-items:flex-start;background:var(--cream-50);border:2px solid var(--ink-900);border-radius:14px;padding:16px 18px;}
+  .qi .ck{width:26px;height:26px;border-radius:50%;background:var(--coral);border:2px solid var(--ink-900);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .qi .ck .lucide{width:15px;height:15px;color:#fff;}
+  .qi span{font-size:15px;line-height:1.45;color:var(--ink-700);}
+  .steps2{display:flex;flex-direction:column;gap:18px;max-width:900px;margin:0 auto;}
+  .step2{display:grid;grid-template-columns:60px 1fr;gap:22px;background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:22px;padding:26px 30px;box-shadow:4px 5px 0 var(--ink-900);}
+  .step2 .n{font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--coral);border:2px solid var(--ink-900);border-radius:12px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--coral-soft);}
+  .step2 h3{font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.02em;margin:0 0 8px;}
+  .step2 .sd{font-size:15px;line-height:1.55;color:var(--ink-500);margin:0 0 14px;}
+  .obj{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12.5px;color:var(--teal-700);background:var(--teal-100);border:1.5px solid var(--teal-400);border-radius:999px;padding:7px 13px;}
+  .obj .lucide{width:14px;height:14px;}
+  .around{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .acard{background:rgba(255,253,232,0.07);border:2px solid var(--teal-400);border-radius:18px;padding:22px;position:relative;}
+  .acard .ai{width:42px;height:42px;border-radius:12px;border:2px solid var(--ink-900);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+  .acard b{font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--cream-100);display:block;margin-bottom:5px;}
+  .acard p{font-size:14px;line-height:1.5;color:var(--teal-200);margin:0;}
+  .opt{position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:999px;background:var(--gold);color:var(--ink-900);border:1.5px solid var(--ink-900);}
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto;}
+  .path{border:2.5px solid var(--ink-900);border-radius:22px;padding:30px;}
+  .path.no{background:var(--cream-100);}
+  .path.yes{background:var(--teal-600);box-shadow:6px 8px 0 var(--ink-900);}
+  .path .ph{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+  .path.no .ph{color:var(--ink-400);}
+  .path.yes .ph{color:var(--gold);}
+  .path h3{font-family:var(--font-display);font-weight:800;font-size:24px;margin:0 0 18px;letter-spacing:-0.02em;}
+  .path.yes h3{color:var(--cream-100);}
+  .path ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;}
+  .path li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.45;}
+  .path.no li{color:var(--ink-500);}
+  .path.yes li{color:var(--cream-100);}
+  .path .lucide{width:18px;height:18px;flex-shrink:0;margin-top:1px;}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto;}
+  .quote{background:var(--teal-600);border:2.5px solid var(--ink-900);border-radius:24px;box-shadow:6px 8px 0 var(--ink-900);padding:34px 32px;}
+  .quote .stars{display:flex;gap:3px;margin-bottom:14px;color:var(--gold);}
+  .quote .stars .lucide{width:17px;height:17px;fill:var(--gold);}
+  .quote p{font-family:var(--font-display);font-weight:700;font-size:21px;line-height:1.3;letter-spacing:-0.01em;color:var(--cream-100);margin:0 0 20px;}
+  .quote .who{display:flex;align-items:center;gap:12px;}
+  .quote .av{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink-900);background:var(--gold);color:var(--ink-900);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;flex-shrink:0;}
+  .quote .who b{color:var(--cream-100);font-family:var(--font-body);font-size:15px;}
+  .quote .who span{color:var(--teal-200);font-family:var(--font-mono);font-size:13px;}
+  .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  .faq details{background:var(--cream-50);border:2px solid var(--ink-900);border-radius:16px;padding:0 24px;}
+  .faq summary{list-style:none;cursor:pointer;padding:20px 0;font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1.25;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink-900);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary .lucide{transition:transform .2s;flex-shrink:0;color:var(--coral);}
+  .faq details[open] summary .lucide{transform:rotate(45deg);}
+  .faq .fa{margin:0 0 20px;font-size:15px;line-height:1.65;color:var(--ink-500);}
+  .finalcta{background:var(--ink-900);border-radius:32px;padding:60px 48px;text-align:center;position:relative;overflow:hidden;opacity:0;transform:translateY(48px) scale(0.97);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .finalcta.reveal{opacity:1;transform:translateY(0) scale(1);}
+  .finalcta h2{font-family:var(--font-display);font-weight:800;font-size:40px;line-height:1.03;letter-spacing:-0.025em;color:var(--cream-100);margin:0 0 12px;position:relative;z-index:2;}
+  .finalcta p{color:var(--teal-200);font-size:18px;margin:0 auto 28px;position:relative;z-index:2;max-width:40ch;}
+  .finalcta .note{font-family:var(--font-mono);font-size:12.5px;color:var(--teal-300);margin-top:18px;}
+  /* Projection offre (façon Scalezia) */
+  .projhead{position:relative;overflow:hidden;background:var(--teal-600);border:2.5px solid var(--ink-900);border-radius:26px;box-shadow:8px 10px 0 var(--ink-900);padding:54px 46px;margin-bottom:14px;}
+  .projhead::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,253,232,.12) 2px,transparent 2.2px);background-size:26px 26px;pointer-events:none;}
+  .projhead .ey{position:relative;z-index:2;color:var(--gold);}
+  .projhead h2{position:relative;z-index:2;font-family:var(--font-display);font-weight:800;font-size:42px;line-height:1.02;letter-spacing:-0.025em;color:var(--cream-100);margin:14px 0 0;max-width:20ch;}
+  .bookmark{position:absolute;top:-2px;right:52px;width:56px;height:78px;background:var(--gold);border:2.5px solid var(--ink-900);border-top:none;border-radius:0 0 12px 12px;display:flex;align-items:center;justify-content:center;z-index:3;}
+  .bookmark .lucide{width:26px;height:26px;color:var(--ink-900);}
+  .projrow{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;padding:44px 0;}
+  .projrow + .projrow{border-top:2px solid var(--line-100);}
+  .projnum{font-family:var(--font-display);font-weight:800;font-size:60px;line-height:1;color:var(--gold);-webkit-text-stroke:2.5px var(--ink-900);margin-bottom:14px;}
+  .projrow h3{font-family:var(--font-display);font-weight:800;font-size:29px;line-height:1.04;letter-spacing:-0.02em;margin:0 0 14px;}
+  .projrow .pd{font-size:15.5px;line-height:1.6;color:var(--ink-500);margin:0 0 22px;max-width:42ch;}
+  .projrow.rev .media{order:-1;}
+  .win{border:2.5px solid var(--ink-900);border-radius:16px;box-shadow:6px 8px 0 var(--ink-900);overflow:hidden;background:#fff;}
+  .win .bar{display:flex;gap:7px;padding:11px 14px;background:var(--cream-100);border-bottom:2px solid var(--ink-900);align-items:center;}
+  .win .dot3{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--ink-900);}
+  .win .wt{margin-left:8px;font-family:var(--font-mono);font-size:11px;color:var(--ink-400);}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1000px){
+    .wrap{padding:0 24px;}
+    .hero h1{font-size:clamp(42px,8vw,64px);}
+    .statsband{grid-template-columns:repeat(2,1fr);gap:28px 24px;padding:44px 36px;}
+    .fgrid{grid-template-columns:1fr 1fr;gap:32px;}
+    .pains,.around{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:820px){
+    .navrow{flex-wrap:wrap;height:auto;padding:12px 0;gap:10px 16px;}
+    .navlinks{order:3;width:100%;justify-content:flex-start;gap:18px;font-size:14px;flex-wrap:wrap;}
+    .offers,.bloggrid{grid-template-columns:1fr;}
+    .audgrid{grid-template-columns:1fr;}
+    #fondateur > .wrap > div{grid-template-columns:1fr !important;gap:32px !important;}
+    #fondateur h2{font-size:38px !important;}
+    .nlcard{padding:44px 32px;}
+    .nlcard h2{font-size:34px;}
+    .statsband{padding:40px 28px;}
+    .stat b{font-size:40px;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 18px;}
+    .hero{padding:44px 0 32px;}
+    .hero .cta-row{gap:10px;}
+    .hero .cta-row .btn{width:100%;justify-content:center;}
+    .statsband{grid-template-columns:1fr;text-align:center;gap:24px;}
+    .fgrid{grid-template-columns:1fr;gap:28px;}
+    .fbot{flex-direction:column;gap:8px;text-align:center;}
+    .band .track{font-size:13px;gap:30px;}
+    .shead h2{font-size:32px;}
+  }
+  @media (max-width:820px){
+    .pains,.around,.qual,.paths,.quotes{grid-template-columns:1fr;}
+    .offerpanel{grid-template-columns:1fr!important;}
+    .projrow{grid-template-columns:1fr;gap:26px;}
+    .projrow.rev .media{order:0;}
+    .projhead{padding:38px 26px;}
+    .projhead h2{font-size:30px;}
+    .step2{grid-template-columns:1fr;gap:12px;}
+    .finalcta h2{font-size:30px;}
+    .finalcta{padding:44px 28px;}
+    .faq summary{font-size:16px;}
+    .quote p{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#005253">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#005253"/>
+    <circle cx="600" cy="360" r="150" fill="none" stroke="#FFFDE8" stroke-width="26"/>
+    <path d="M600 250 L622 330 L706 330 L638 380 L662 460 L600 410 L538 460 L562 380 L494 330 L578 330 Z" fill="#F5B23D"/>
+    <text x="600" y="600" font-family="Georgia, serif" font-size="76" font-weight="800" fill="#FFFDE8" text-anchor="middle" letter-spacing="-2">Superformateur</text>
+  </svg>
+</template>
+
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html"><img src="assets/logo-mark.png" alt="">Superformateur</a>
+    <nav class="navlinks">
+      <a href="#accompagnement">L'accompagnement</a>
+      <a href="#parcours">Le parcours</a>
+      <div class="hasmenu"><a href="blog.html">Ressources <i data-lucide="chevron-down" class="lucide" style="width:15px;height:15px"></i></a>
+        <div class="menu">
+          <a href="blog.html"><span class="mi" style="background:var(--lime-soft)"><i data-lucide="book-open" class="lucide" style="color:var(--lime-ink)"></i></span><span><b>Le blog</b><small style="display:block;font-size:12.5px;color:var(--ink-400);font-weight:400;font-family:var(--font-body);margin-top:3px;letter-spacing:0">Conseils pratico-pratiques.</small></span></a>
+          <a href="https://superformateur.substack.com" target="_blank" rel="noopener"><span class="mi" style="background:var(--gold-soft)"><i data-lucide="mail" class="lucide" style="color:var(--gold-ink)"></i></span><span><b>Superformateur</b><small style="display:block;font-size:12.5px;color:var(--ink-400);font-weight:400;font-family:var(--font-body);margin-top:3px;letter-spacing:0">La newsletter, chaque jeudi.</small></span></a>
+        </div>
+      </div>
+    </nav>
+    <a class="btn btn-accent" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve un appel</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="emblem" aria-hidden="true">
+      <svg viewBox="0 0 280 540" width="100%" height="100%" fill="none" preserveAspectRatio="xMidYMax meet">
+        <!-- sparkles -->
+        <path d="M40 90 l4 12 l12 4 l-12 4 l-4 12 l-4 -12 l-12 -4 l12 -4 Z" fill="#F5B23D" stroke="#10201E" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M244 150 l3 9 l9 3 l-9 3 l-3 9 l-3 -9 l-9 -3 l9 -3 Z" fill="#8FCB4A" stroke="#10201E" stroke-width="1.6" stroke-linejoin="round"/>
+        <!-- ombre -->
+        <ellipse cx="140" cy="516" rx="96" ry="14" fill="#005253" opacity=".16"/>
+        <!-- cape -->
+        <path d="M92 156 Q34 280 58 452 Q86 486 112 452 Q124 320 140 268 Q156 320 168 452 Q194 486 222 452 Q246 280 188 156 Z" fill="#FF6F4E" stroke="#10201E" stroke-width="3.5" stroke-linejoin="round"/>
+        <!-- jambes -->
+        <path d="M108 340 L102 476 L130 476 L136 342 Z" fill="#004A4B" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M144 342 L150 476 L178 476 L172 340 Z" fill="#004A4B" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <!-- bottes -->
+        <path d="M96 470 L94 500 L134 500 L132 470 Z" fill="#FF6F4E" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M148 470 L146 500 L188 500 L186 470 Z" fill="#FF6F4E" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <!-- bras sur les hanches -->
+        <path d="M110 182 L72 258 L104 300 L124 250 Z" fill="#005253" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M170 182 L208 258 L176 300 L156 250 Z" fill="#005253" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <!-- torse -->
+        <path d="M104 172 Q140 150 176 172 L184 320 Q140 340 96 320 Z" fill="#0A6B6B" stroke="#10201E" stroke-width="3.5" stroke-linejoin="round"/>
+        <!-- ceinture -->
+        <path d="M98 316 L182 316 L178 338 L102 338 Z" fill="#F5B23D" stroke="#10201E" stroke-width="3" stroke-linejoin="round"/>
+        <!-- mains -->
+        <circle cx="104" cy="300" r="10" fill="#F7D3AE" stroke="#10201E" stroke-width="3"/>
+        <circle cx="176" cy="300" r="10" fill="#F7D3AE" stroke="#10201E" stroke-width="3"/>
+        <!-- emblème étoile -->
+        <path d="M140 210 L148 232 L172 233 L153 248 L160 271 L140 257 L120 271 L127 248 L108 233 L132 232 Z" fill="#F5B23D" stroke="#10201E" stroke-width="2.6" stroke-linejoin="round"/>
+        <!-- cou -->
+        <rect x="126" y="150" width="28" height="24" fill="#F0C9A8" stroke="#10201E" stroke-width="3"/>
+        <!-- tête -->
+        <circle cx="140" cy="116" r="40" fill="#F7D3AE" stroke="#10201E" stroke-width="3.5"/>
+        <!-- cheveux -->
+        <path d="M102 108 Q104 72 140 72 Q176 72 178 108 Q163 94 140 94 Q117 94 102 108 Z" fill="#3A2A20" stroke="#10201E" stroke-width="2.8" stroke-linejoin="round"/>
+        <!-- masque -->
+        <path d="M110 112 Q140 100 170 112 L168 128 Q140 121 112 128 Z" fill="#005253" stroke="#10201E" stroke-width="2.6" stroke-linejoin="round"/>
+        <circle cx="127" cy="116" r="5" fill="#FFFDE8"/>
+        <circle cx="153" cy="116" r="5" fill="#FFFDE8"/>
+        <!-- sourire -->
+        <path d="M126 134 Q140 146 154 134" stroke="#10201E" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <h1>Gagne ta vie grâce à <span class="hl">ton expertise.</span></h1>
+    <p class="lead">On te construit une offre de formation qui marque les esprits et remplit ton agenda.</p>
+    <div class="cta-row">
+      <a class="btn btn-accent btn-lg" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve ta consultation (gratuite) <i data-lucide="arrow-right" class="lucide"></i></a>
+      <span class="note">Appel de 15 min, sans engagement · +2 400 formateurs accompagnés</span>
+    </div>
+  </div>
+</div>
+
+<div class="band">
+  <div class="track">
+    <span>Structurer son offre</span>
+    <span class="dot">◆</span>
+    <span>Concevoir une pédagogie mémorable</span>
+    <span class="dot">◆</span>
+    <span>Animer avec présence</span>
+    <span class="dot">◆</span>
+    <span>Vendre sans se trahir</span>
+    <span class="dot">◆</span>
+    <span>Vivre de son expertise</span>
+    <span class="dot">◆</span>
+    <span>Bâtir sa réputation</span>
+    <span class="dot">◆</span>
+    <span aria-hidden="true">Structurer son offre</span>
+    <span class="dot" aria-hidden="true">◆</span>
+    <span aria-hidden="true">Concevoir une pédagogie mémorable</span>
+    <span class="dot" aria-hidden="true">◆</span>
+    <span aria-hidden="true">Animer avec présence</span>
+    <span class="dot" aria-hidden="true">◆</span>
+    <span aria-hidden="true">Vendre sans se trahir</span>
+    <span class="dot" aria-hidden="true">◆</span>
+    <span aria-hidden="true">Vivre de son expertise</span>
+    <span class="dot" aria-hidden="true">◆</span>
+    <span aria-hidden="true">Bâtir sa réputation</span>
+    <span class="dot" aria-hidden="true">◆</span>
+  </div>
+</div>
+
+<section id="fondateur" style="padding:40px 0 40px">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:center">
+      <div style="position:relative">
+        <div style="aspect-ratio:4/5;border:2.5px solid var(--ink-900);border-radius:26px;box-shadow:8px 10px 0 var(--ink-900);overflow:hidden">
+          <img src="assets/quentin.jpg" alt="Quentin Declercq, fondateur de Superformateur" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block">
+        </div>
+        <div style="position:absolute;bottom:-16px;left:-16px;background:var(--coral);color:#fff;border:2.5px solid var(--ink-900);border-radius:14px;padding:10px 16px;font-family:var(--font-mono);font-size:12px;font-weight:700;box-shadow:3px 4px 0 var(--ink-900)">12+ ans à former des formateurs</div>
+      </div>
+      <div>
+        <span class="ey" style="color:var(--coral)">// Qui je suis</span>
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-0.03em;margin:14px 0 0">Moi, c'est Quentin.</h2>
+        <p style="font-size:19px;line-height:1.6;color:var(--ink-700);margin:22px 0 0;max-width:52ch">Depuis plus de 12 ans, j'ai un pied dans la pédagogie et l'autre dans le commerce : je conçois des formations qui transforment les pratiques et j'ai développé le CA d'organismes de formation. Concevoir, transmettre et vendre : j'aide +2 400 experts à maîtriser les deux.</p>
+        <div style="display:flex;gap:16px;align-items:center;margin-top:28px;flex-wrap:wrap">
+          <a href="https://www.linkedin.com/in/quent-declercq/" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:14px;font-weight:700;color:var(--teal-600);display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);padding-bottom:2px">Me suivre sur LinkedIn <i data-lucide="arrow-up-right" class="lucide" style="width:16px;height:16px"></i></a>
+        </div>
+        <div style="margin-top:34px">
+          <div style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-400);margin-bottom:14px">Ils m'ont fait confiance</div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <span style="display:flex;align-items:center;justify-content:center;height:58px;width:118px;background:#fff;border:2px solid var(--ink-900);border-radius:12px;box-shadow:2px 3px 0 var(--ink-900);padding:12px"><img src="assets/logo-michelin.png" alt="Michelin" style="max-width:100%;max-height:100%;object-fit:contain"></span>
+            <span style="display:flex;align-items:center;justify-content:center;height:58px;width:118px;background:#fff;border:2px solid var(--ink-900);border-radius:12px;box-shadow:2px 3px 0 var(--ink-900);padding:6px"><img src="assets/logo-somfy.png" alt="Somfy" style="max-width:100%;max-height:100%;object-fit:contain"></span>
+            <span style="display:flex;align-items:center;justify-content:center;height:58px;width:118px;background:#fff;border:2px solid var(--ink-900);border-radius:12px;box-shadow:2px 3px 0 var(--ink-900);padding:12px"><img src="assets/logo-boursobank.png" alt="BoursoBank" style="max-width:100%;max-height:100%;object-fit:contain"></span>
+            <span style="display:flex;align-items:center;justify-content:center;height:58px;width:118px;background:#fff;border:2px solid var(--ink-900);border-radius:12px;box-shadow:2px 3px 0 var(--ink-900);padding:12px"><img src="assets/logo-centravet.png" alt="Centravet" style="max-width:100%;max-height:100%;object-fit:contain"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="douleurs" style="padding:64px 0 40px">
+  <div class="wrap">
+    <div class="shead">
+      <span class="ey" style="color:var(--coral)">// Soyons honnêtes</span>
+      <h2>Ton expertise est reconnue. Mais ton CA n'explose pas.</h2>
+      <p>Tu es reconnu·e pour ton expertise, mais les missions se raréfient et les prix se négocient à la baisse. Le vrai problème n'est pas ton expertise : c'est ta façon de la packager, de la vendre et de la faire reconnaître. Si tu te reconnais là-dedans, tu es au bon endroit.</p>
+    </div>
+    <div class="pains">
+      <div class="pain"><div class="pi"><i data-lucide="ghost" class="lucide"></i></div><b>Tu es devenu interchangeable</b><p>Même promesse, même pitch, mêmes slides que les autres. Le client choisit sur un prix ou pire, demande à une IA de générer le contenu de ta formation.</p></div>
+      <div class="pain"><div class="pi"><i data-lucide="calendar-x" class="lucide"></i></div><b>Ton agenda se vide</b><p>Les missions se raréfient, le bouche-à-oreille ne suffit plus, et tu attends que le téléphone sonne au lieu de piloter ta prospection.</p></div>
+      <div class="pain"><div class="pi"><i data-lucide="tag" class="lucide"></i></div><b>Tu brades ton tarif</b><p>Faute d'oser vendre ta valeur, tu ajustes tes prix à la baisse et tu travailles plus pour gagner moins.</p></div>
+      <div class="pain"><div class="pi"><i data-lucide="cloud-drizzle" class="lucide"></i></div><b>Tes formations plaisent… puis s'oublient</b><p>Bonnes évals à chaud, zéro trace trois semaines après. Difficile de prouver l'impact donc de te faire recommander.</p></div>
+      <div class="pain"><div class="pi"><i data-lucide="package" class="lucide"></i></div><b>Ton offre est floue</b><p>Tu sais tout faire, donc personne ne sait pourquoi te choisir. Une offre illisible, c'est une offre qu'on n'achète pas.</p></div>
+      <div class="pain"><div class="pi"><i data-lucide="user-minus" class="lucide"></i></div><b>Tu avances seul·e</b><p>Pas de méthode, pas de regard extérieur, pas de pairs. Tu tournes en rond sur les mêmes blocages depuis des mois.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a class="btn btn-accent btn-lg" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Je veux sortir de là <i data-lucide="arrow-right" class="lucide"></i></a>
+    </div>
+  </div>
+</section>
+
+<section id="accompagnement">
+  <div class="wrap">
+    <div class="projhead">
+      <div class="bookmark"><img src="assets/logo-mark.png" alt="Superformateur" style="width:40px;height:40px;border-radius:9px;border:2px solid var(--ink-900)"></div>
+      <span class="ey">// L'accompagnement</span>
+      <h2>Offre enfin à ton expertise la place qu'elle mérite.</h2>
+    </div>
+
+    <div class="projrow">
+      <div>
+        <div class="projnum">01</div>
+        <h3>Construis des formations qu'on n'oublie pas</h3>
+        <p class="pd">Conçois avec méthode, incarne avec confiance ta posture, prouve ton impact. Tu repars avec des canevas réutilisables (loin du contenu interchangeable que produit l'IA).</p>
+        <a class="btn btn-solid" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve ton appel <span style="opacity:.7">(offert)</span> <i data-lucide="arrow-right" class="lucide"></i></a>
+      </div>
+      <div class="media">
+        <div class="win" style="transform:rotate(-1.6deg)">
+          <div class="bar"><span class="dot3" style="background:#FF6F4E"></span><span class="dot3" style="background:#F5B23D"></span><span class="dot3" style="background:#8FCB4A"></span><span class="wt">Canevas de séquence</span></div>
+          <div style="padding:18px;display:flex;flex-direction:column;gap:11px">
+            <div style="display:flex;align-items:center;gap:9px"><span style="width:20px;height:20px;border-radius:6px;background:var(--coral-soft);border:1.5px solid var(--ink-900);display:flex;align-items:center;justify-content:center"><i data-lucide="check" class="lucide" style="width:12px;height:12px;color:var(--coral-ink)"></i></span><div style="height:9px;width:62%;background:var(--cream-300);border-radius:3px"></div></div>
+            <div style="display:flex;align-items:center;gap:9px"><span style="width:20px;height:20px;border-radius:6px;background:var(--lime-soft);border:1.5px solid var(--ink-900);display:flex;align-items:center;justify-content:center"><i data-lucide="check" class="lucide" style="width:12px;height:12px;color:var(--lime-ink)"></i></span><div style="height:9px;width:80%;background:var(--cream-300);border-radius:3px"></div></div>
+            <div style="display:flex;align-items:center;gap:9px"><span style="width:20px;height:20px;border-radius:6px;background:var(--gold-soft);border:1.5px solid var(--ink-900);display:flex;align-items:center;justify-content:center"><i data-lucide="check" class="lucide" style="width:12px;height:12px;color:var(--gold-ink)"></i></span><div style="height:9px;width:50%;background:var(--cream-300);border-radius:3px"></div></div>
+            <div style="height:42px;border:1.5px dashed var(--line-200);border-radius:9px;margin-top:4px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-300)">+ Ajouter une activité</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projrow rev">
+      <div>
+        <div class="projnum">02</div>
+        <h3>Signe plus de missions, au bon prix</h3>
+        <p class="pd">Un positionnement clair, une offre vendable et un système de prospection qui tourne. Tu ne subis plus tes tarifs (tu les assumes).</p>
+        <a class="btn btn-solid" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve ton appel <span style="opacity:.7">(offert)</span> <i data-lucide="arrow-right" class="lucide"></i></a>
+      </div>
+      <div class="media">
+        <div class="win" style="transform:rotate(1.5deg)">
+          <div class="bar"><span class="dot3" style="background:#FF6F4E"></span><span class="dot3" style="background:#F5B23D"></span><span class="dot3" style="background:#8FCB4A"></span><span class="wt">Missions signées</span></div>
+          <div style="padding:22px 20px;display:flex;flex-direction:column;gap:14px">
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-400)">Signé ce trimestre</div>
+            <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:var(--font-display);font-weight:800;font-size:34px;color:var(--teal-600);letter-spacing:-0.02em">+38 400 €</span><span style="font-family:var(--font-mono);font-size:12px;color:var(--lime-ink)">▲ 52 %</span></div>
+            <svg viewBox="0 0 240 70" width="100%" height="64" preserveAspectRatio="none">
+              <g stroke="#10201E" stroke-width="1.5">
+                <rect x="6" y="46" width="30" height="22" rx="3" fill="#AED6D2"/>
+                <rect x="46" y="38" width="30" height="30" rx="3" fill="#6FB3B0"/>
+                <rect x="86" y="40" width="30" height="28" rx="3" fill="#AED6D2"/>
+                <rect x="126" y="26" width="30" height="42" rx="3" fill="#2C8A89"/>
+                <rect x="166" y="16" width="30" height="52" rx="3" fill="#005253"/>
+                <rect x="206" y="6" width="30" height="62" rx="3" fill="#F5B23D"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projrow">
+      <div>
+        <div class="projnum">03</div>
+        <h3>Des résultats qui se voient. Vite.</h3>
+        <p class="pd">Tu ne cours plus après les missions : ton agenda se remplit, tes clients te recommandent, et ton expertise devient (enfin) ton gagne-pain.</p>
+        <a class="btn btn-solid" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve ton appel <span style="opacity:.7">(offert)</span> <i data-lucide="arrow-right" class="lucide"></i></a>
+      </div>
+      <div class="media">
+        <div class="win" style="transform:rotate(-1.4deg)">
+          <div class="bar"><span class="dot3" style="background:#FF6F4E"></span><span class="dot3" style="background:#F5B23D"></span><span class="dot3" style="background:#8FCB4A"></span><span class="wt">Recommandations</span></div>
+          <div style="padding:16px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:10px;align-items:center;background:var(--cream-100);border:1.5px solid var(--line-200);border-radius:10px;padding:10px 12px"><span style="width:30px;height:30px;border-radius:50%;background:var(--coral);border:1.5px solid var(--ink-900);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:12px">SM</span><div><div style="height:7px;width:120px;background:var(--cream-300);border-radius:3px;margin-bottom:5px"></div><div style="display:flex;gap:2px;color:var(--gold)"><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i></div></div></div>
+            <div style="display:flex;gap:10px;align-items:center;background:var(--cream-100);border:1.5px solid var(--line-200);border-radius:10px;padding:10px 12px"><span style="width:30px;height:30px;border-radius:50%;background:var(--teal-600);border:1.5px solid var(--ink-900);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:12px">TB</span><div><div style="height:7px;width:150px;background:var(--cream-300);border-radius:3px;margin-bottom:5px"></div><div style="display:flex;gap:2px;color:var(--gold)"><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i><i data-lucide="star" class="lucide" style="width:11px;height:11px;fill:var(--gold)"></i></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="wrap">
+    <div class="shead">
+      <span class="ey" style="color:var(--coral)">// Le parcours</span>
+      <h2>Ce que comprend l'accompagnement.</h2>
+      <p>On ne te vend pas un contenu, mais un système. Voici comment on avance, concrètement.</p>
+    </div>
+    <div class="steps2">
+      <div class="step2">
+        <div class="n"><i data-lucide="route" class="lucide" style="width:22px;height:22px"></i></div>
+        <div>
+          <h3>Ton programme personnalisé</h3>
+          <p class="sd">On audite ta situation en profondeur, puis on définit ton programme sur-mesure pour lever les blocages là où ils se trouvent vraiment.</p>
+          <span class="obj"><i data-lucide="target" class="lucide"></i> Identifier, prioriser et éliminer les obstacles qui freinent ton développement</span>
+        </div>
+      </div>
+      <div class="step2">
+        <div class="n"><i data-lucide="copy" class="lucide" style="width:22px;height:22px"></i></div>
+        <div>
+          <h3>Toutes nos méthodes &amp; process à copier-coller</h3>
+          <p class="sd">On avait l'expertise, mais pas le système pour rendre notre offre irrésistible et être choisi. Après des centaines d'expérimentations, on te transmet tout ce qu'on sait pour vendre la tienne.</p>
+          <span class="obj"><i data-lucide="target" class="lucide"></i> Un maximum de résultats, le plus vite possible</span>
+        </div>
+      </div>
+      <div class="step2">
+        <div class="n"><i data-lucide="user-round" class="lucide" style="width:22px;height:22px"></i></div>
+        <div>
+          <h3>Un accès direct au fondateur</h3>
+          <p class="sd">Quentin t'ouvre sa porte pour répondre à toutes tes questions, débloquer tes situations et t'orienter sans intermédiaire.</p>
+          <span class="obj"><i data-lucide="target" class="lucide"></i> Que plus aucune de tes questions ne reste sans réponse</span>
+        </div>
+      </div>
+      <div class="step2">
+        <div class="n"><i data-lucide="users" class="lucide" style="width:22px;height:22px"></i></div>
+        <div>
+          <h3>La communauté des (Super)formateurs</h3>
+          <p class="sd">Intègre un cercle de formateurs et consultants qui partagent ton quotidien, tes galères et tes ambitions.</p>
+          <span class="obj"><i data-lucide="target" class="lucide"></i> Dire adieu, pour de bon, à la solitude de l'indépendant</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:34px">
+      <a class="btn btn-solid btn-lg" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Construire mon parcours <i data-lucide="arrow-right" class="lucide"></i></a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div style="background:var(--teal-600);border:2.5px solid var(--ink-900);border-radius:28px;box-shadow:8px 10px 0 var(--ink-900);padding:44px 40px">
+      <div style="text-align:center;max-width:54ch;margin:0 auto 30px">
+        <span class="ey" style="color:var(--gold)">// Autour de l'accompagnement</span>
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-0.025em;color:var(--cream-100);margin:10px 0 0">Pour une vraie transformation sur le terrain.</h2>
+      </div>
+      <div class="around" style="grid-template-columns:repeat(3,1fr)">
+        <div class="acard"><div class="ai" style="background:var(--gold)"><i data-lucide="layout-template" class="lucide" style="color:var(--ink-900)"></i></div><b>Canevas concrets</b><p>Des modèles prêts à réutiliser sur le terrain dès le lendemain.</p></div>
+        <div class="acard"><div class="ai" style="background:var(--coral)"><i data-lucide="folder-open" class="lucide" style="color:#fff"></i></div><b>Supports à garder</b><p>Tes ressources et outils, à toi pour toujours, prêts à adapter.</p></div>
+        <div class="acard"><div class="ai" style="background:var(--lime)"><i data-lucide="users" class="lucide" style="color:var(--ink-900)"></i></div><b>Cas réels</b><p>Petits groupes, exercices appliqués à tes propres formations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <span class="ey" style="color:var(--coral)">// Deux chemins s'offrent à toi</span>
+      <h2>Avec ou sans méthode.</h2>
+    </div>
+    <div class="paths">
+      <div class="path no">
+        <div class="ph">Aujourd'hui, sans accompagnement</div>
+        <h3>Tu improvises</h3>
+        <ul>
+          <li><i data-lucide="x" class="lucide" style="color:var(--ink-400)"></i> Une offre floue que personne ne comprend vraiment</li>
+          <li><i data-lucide="x" class="lucide" style="color:var(--ink-400)"></i> Des formations denses… mais vite oubliées</li>
+          <li><i data-lucide="x" class="lucide" style="color:var(--ink-400)"></i> Des prix subis, par peur de vendre</li>
+          <li><i data-lucide="x" class="lucide" style="color:var(--ink-400)"></i> Un agenda qui dépend du bouche-à-oreille</li>
+          <li><i data-lucide="x" class="lucide" style="color:var(--ink-400)"></i> Le sentiment d'avancer seul·e</li>
+        </ul>
+      </div>
+      <div class="path yes">
+        <div class="ph">Avec Superformateur</div>
+        <h3>Tu maîtrises</h3>
+        <ul>
+          <li><i data-lucide="check" class="lucide" style="color:var(--gold)"></i> Une offre claire, que tes clients ont envie d'acheter</li>
+          <li><i data-lucide="check" class="lucide" style="color:var(--gold)"></i> Des formations qui marquent et transforment</li>
+          <li><i data-lucide="check" class="lucide" style="color:var(--gold)"></i> Des prix assumés, alignés sur ta valeur</li>
+          <li><i data-lucide="check" class="lucide" style="color:var(--gold)"></i> Un système de prospection qui remplit ton agenda</li>
+          <li><i data-lucide="check" class="lucide" style="color:var(--gold)"></i> Une méthode, des canevas et un entourage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="statsband" style="grid-template-columns:repeat(3,1fr);text-align:center">
+      <div class="stat"><b>+2 400</b><span>formateurs accompagnés depuis plus de 12 ans</span></div>
+      <div class="stat"><b>4,6/5</b><span>note moyenne des sessions animées par Superformateur</span></div>
+      <div class="stat"><b>1×/sem</b><span>des astuces concrètes dans la newsletter</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="temoignages">
+  <div class="wrap">
+    <div class="shead">
+      <span class="ey" style="color:var(--coral)">// Témoignages</span>
+      <h2>Ils l'ont fait avant toi.</h2>
+      <p>Des experts comme toi, qui ont arrêté d'être interchangeables.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars"><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i></div>
+        <p>« En 2 jours, j'ai enfin structuré ma formation et les canevas me resservent à chaque session. »</p>
+        <div class="who"><div class="av">CR</div><div><b>Camille Roy</b><br><span>Formatrice indépendante</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars"><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i></div>
+        <p>« Superformateur a mis en lumière de véritables lacunes dans ma posture de formateur. Je forme avec plus de confiance désormais. »</p>
+        <div class="who"><div class="av">LV</div><div><b>Luc V.</b><br><span>Formateur Paie</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars"><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i></div>
+        <p>« J'ai enfin osé structurer et vendre une vraie offre. Résultat : des tarifs assumés et un agenda qui se remplit sans courir après les missions. »</p>
+        <div class="who"><div class="av">SM</div><div><b>Sarah M.</b><br><span>Consultante &amp; formatrice</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars"><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i><i data-lucide="star" class="lucide"></i></div>
+        <p>« En 3 mois, j'ai doublé mon taux de conversion sur mes propositions. Ma prospection est enfin cadrée, et je ne subis plus mes prix. »</p>
+        <div class="who"><div class="av">TB</div><div><b>Thomas B.</b><br><span>Formateur indépendant en cybersécurité</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <span class="ey" style="color:var(--teal-600)">// Le blog</span>
+      <h2>Des conseils pratico-pratiques.</h2>
+      <p>Tout ce qu'on aurait aimé qu'on nous dise en démarrant.<br>Concret, testable dès demain.</p>
+    </div>
+    <div class="bloggrid">
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#DCEBE8,#AED6D2);padding:0">
+          <svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration : une étincelle jaillit d'un socle">
+            <g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round">
+              <!-- ombre portée -->
+              <ellipse cx="180" cy="132" rx="82" ry="15" fill="#005253" opacity=".18" stroke="none"/>
+              <!-- socle isométrique -->
+              <polygon points="180,84 250,112 180,140 110,112" fill="#6FB3B0"/>
+              <!-- cube pédestal -->
+              <polygon points="180,66 224,84 224,112 180,130 136,112 136,84" fill="#004A4B"/>
+              <polygon points="136,84 180,66 224,84 180,102" fill="#FFFEF6"/>
+              <polygon points="180,102 224,84 224,112 180,130" fill="#0A6B6B"/>
+              <polygon points="136,84 180,102 180,130 136,112" fill="#003D3E"/>
+              <!-- étincelle -->
+              <path d="M180 8 L192 44 L228 30 L200 58 L236 66 L198 72 L214 106 L180 82 L146 106 L162 72 L124 66 L160 58 L132 30 L168 44 Z" fill="#F5B23D"/>
+              <circle cx="180" cy="58" r="9" fill="#FF6F4E"/>
+            </g>
+            <g stroke="#10201E" stroke-width="2" fill="none" stroke-linecap="round">
+              <circle cx="272" cy="42" r="5" fill="#FF6F4E"/>
+              <circle cx="96" cy="52" r="4" fill="#8FCB4A"/>
+              <path d="M300 84 l8 0 M304 80 l0 8"/>
+              <path d="M64 92 l7 0 M67.5 88.5 l0 7"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="cat" style="background:var(--lime-soft);color:var(--lime-ink)">Conception</span>
+          <h3>Concevoir : pars de la sortie, jamais du contenu</h3>
+          <div class="meta"><span>24 juin</span><span>·</span><span>8 min</span></div>
+        </div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#FCEBC4,#F5D089);padding:0">
+          <svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration : un histogramme qui progresse, surmonté d'une coche">
+            <g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round">
+              <ellipse cx="180" cy="136" rx="104" ry="12" fill="#B27400" opacity=".2" stroke="none"/>
+              <rect x="100" y="92" width="44" height="40" rx="6" fill="#6FB3B0"/>
+              <ellipse cx="122" cy="92" rx="22" ry="7" fill="#AED6D2"/>
+              <rect x="158" y="70" width="44" height="62" rx="6" fill="#0A6B6B"/>
+              <ellipse cx="180" cy="70" rx="22" ry="7" fill="#2C8A89"/>
+              <rect x="216" y="46" width="44" height="86" rx="6" fill="#F5B23D"/>
+              <ellipse cx="238" cy="46" rx="22" ry="7" fill="#FCEBC4"/>
+              <circle cx="238" cy="24" r="14" fill="#FF6F4E"/>
+              <path d="M231 24 l5 5 l9 -11" fill="none" stroke="#FFFEF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g stroke="#10201E" stroke-width="2" stroke-linecap="round">
+              <circle cx="86" cy="40" r="5" fill="#8FCB4A"/>
+              <path d="M300 70 l7 0 M303.5 66.5 l0 7" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="cat" style="background:var(--gold-soft);color:var(--gold-ink)">Évaluation</span>
+          <h3>Évaluer : va plus loin que le sourire de fin</h3>
+          <div class="meta"><span>24 juin</span><span>·</span><span>8 min</span></div>
+        </div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#E4F2CE,#C9E39B);padding:0">
+          <svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration : deux bulles de dialogue face à face, l'une plus grande">
+            <g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round">
+              <ellipse cx="180" cy="134" rx="96" ry="13" fill="#4E7A19" opacity=".18" stroke="none"/>
+              <!-- grande bulle (le participant qui monopolise) -->
+              <g>
+                <path d="M96 40 h96 a20 20 0 0 1 20 20 v30 a20 20 0 0 1 -20 20 h-40 l-20 20 v-20 h-36 a20 20 0 0 1 -20 -20 v-30 a20 20 0 0 1 20 -20 Z" fill="#8FCB4A"/>
+                <circle cx="116" cy="75" r="4.5" fill="#10201E" stroke="none"/>
+                <circle cx="144" cy="75" r="4.5" fill="#10201E" stroke="none"/>
+                <circle cx="172" cy="75" r="4.5" fill="#10201E" stroke="none"/>
+              </g>
+              <!-- petite bulle (le formateur qui reprend la main) -->
+              <g>
+                <path d="M238 74 h56 a16 16 0 0 1 16 16 v18 a16 16 0 0 1 -16 16 h-32 l-16 16 v-16 h-8 a16 16 0 0 1 -16 -16 v-18 a16 16 0 0 1 16 -16 Z" fill="#FFFEF6"/>
+                <path d="M258 100 l8 8 l16 -18" fill="none" stroke="#4E7A19" stroke-width="3" stroke-linecap="round"/>
+              </g>
+            </g>
+            <g stroke="#10201E" stroke-width="2" stroke-linecap="round">
+              <circle cx="300" cy="42" r="5" fill="#FF6F4E"/>
+              <path d="M60 96 l7 0 M63.5 92.5 l0 7" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="cat" style="background:var(--coral-soft);color:var(--coral-ink)">Animation</span>
+          <h3>Animer : passe de sachant à facilitateur</h3>
+          <div class="meta"><span>24 juin</span><span>·</span><span>8 min</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="shead">
+      <span class="ey" style="color:var(--coral)">// FAQ</span>
+      <h2>Les questions qu'on nous pose.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Je forme déjà depuis des années, qu'est-ce que ça va m'apporter ? <i data-lucide="plus" class="lucide"></i></summary>
+        <p class="fa">Beaucoup de formateurs (expérimentés ou non) finissent par plafonner : leurs formations sont appréciées, mais leur impact reste limité dans le temps. Leur positionnement devient flou, leur valeur perçue s'érode, et ils se retrouvent progressivement comparés à d'autres intervenants qui proposent des accompagnements similaires. Notre méthode t'aide à clarifier ta différenciation, à renforcer ton autorité dans ta niche et à devenir le formateur que l'on identifie spontanément comme la référence sur son sujet.</p>
+      </details>
+      <details>
+        <summary>Je débute, est-ce que c'est trop tôt ? <i data-lucide="plus" class="lucide"></i></summary>
+        <p class="fa">Au contraire, c'est le meilleur moment pour prendre de bonnes bases plutôt que de désapprendre plus tard. On part de là où tu en es : ton expertise suffit, on construit le reste ensemble.</p>
+      </details>
+      <details>
+        <summary>En combien de temps je vois des résultats ? <i data-lucide="plus" class="lucide"></i></summary>
+        <p class="fa">Ça dépend de toi. Les systèmes que tu implémenteras avec Superformateur nous ont menés à 15 K€/mois de ventes en 10 mois. Nos formateurs, eux, gagnent en moyenne +25 % de C.A./an. Tes résultats suivront les actions que tu mets en place : notre méthode est là pour te guider.</p>
+      </details>
+      <details>
+        <summary>Concrètement, on commence comment ? <i data-lucide="plus" class="lucide"></i></summary>
+        <p class="fa">Par un appel de 15 minutes, sans engagement. On cadre ton besoin, on regarde si l'accompagnement peut t'aider, et tu repars avec au moins une piste concrète que tu continues avec nous ou non.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter" style="padding-top:0">
+  <div class="wrap">
+    <div class="nlcard">
+      <div class="blob" style="width:180px;height:180px;background:var(--teal-600);bottom:-60px;right:-30px;opacity:.5"></div>
+      <div style="position:relative;z-index:2">
+        <span class="subsig"><i data-lucide="mail" class="lucide"></i> Newsletter Substack · Superformateur</span>
+        <h2>Un email par semaine pour mieux former.</h2>
+        <p>Tous les jeudis, à 12h, des idées concrètes pour transformer ton savoir en une offre singulière et reconnue.</p>
+      </div>
+      <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <iframe src="https://superformateur.substack.com/embed" title="Abonne-toi à la newsletter Superformateur" style="width:480px;max-width:100%;height:150px;border:2px solid var(--ink-900);border-radius:16px;background:#fff" frameborder="0" scrolling="no"></iframe>
+        <p style="font-family:var(--font-mono);font-size:12.5px;color:var(--teal-300);margin:0;text-align:center">Gratuit · désabonnement en 1 clic</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="finalcta">
+      <div class="blob" style="width:220px;height:220px;background:var(--teal-600);bottom:-80px;right:-50px;opacity:.5;position:absolute;border-radius:50%"></div>
+      <span class="ey" style="color:var(--gold);position:relative;z-index:2">// On commence ici</span>
+      <h2 style="margin-top:12px">On commence par un appel.<br>C'est gratuit.</h2>
+      <p>15 minutes, sans engagement, pour cadrer ton besoin et repartir avec au moins une piste concrète (que tu continues avec nous ou non).</p>
+      <a class="btn btn-accent btn-lg" href="https://tally.so/r/A757OW" target="_blank" rel="noopener" style="position:relative;z-index:2">Réserve ton appel découverte <i data-lucide="arrow-right" class="lucide"></i></a>
+      <div class="note">Réservé aux formateurs déjà lancés ou sur le point de l'être · +2 400 accompagnés depuis 2018</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><img src="assets/logo-mark.png" alt="">Superformateur</div>
+        <p style="color:var(--teal-200);font-size:15.5px;line-height:1.6;max-width:34ch;margin:18px 0 0">Pour celles et ceux qui ont une expertise à transmettre, une valeur à faire reconnaître, et l'envie d'en vivre pleinement.</p>
+      </div>
+      <div class="fcol"><h4>Accompagnement</h4><a href="#accompagnement">L'accompagnement</a><a href="#parcours">Le parcours</a><a href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserver un appel</a><a href="accompagnements-entreprises.html">Vous êtes une entreprise ?</a></div>
+      <div class="fcol"><h4>Ressources</h4><a href="blog.html">Blog</a><a href="https://superformateur.substack.com" target="_blank" rel="noopener">Newsletter</a><a href="about.html">Cas clients</a></div>
+      <div class="fcol"><h4>Superformateur</h4><a href="about.html">À propos</a><a href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Contact</a><a href="https://www.linkedin.com/company/superformateur-nl/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 Superformateur</span><span>Fait avec soin, pour les formateurs.</span></div>
+  </div>
+</footer>
+
+<!-- ===== TWEAKS PANEL ===== -->
+<style id="tw-dyn"></style>
+<style>
+  #tw-fab{position:fixed;bottom:22px;right:22px;z-index:9999;width:52px;height:52px;border-radius:50%;background:var(--ink-900);color:var(--cream-100);border:2.5px solid var(--ink-900);box-shadow:4px 5px 0 rgba(16,32,30,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s var(--ease-spring);}
+  #tw-fab:hover{transform:rotate(30deg) scale(1.06);}
+  #tw-fab .lucide{width:24px;height:24px;}
+  #tw-panel{position:fixed;bottom:86px;right:22px;z-index:9999;width:312px;background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:20px;box-shadow:7px 9px 0 var(--ink-900);padding:20px;font-family:var(--font-body);transform-origin:bottom right;transition:opacity .18s var(--ease-out),transform .18s var(--ease-out);}
+  #tw-panel.hidden{opacity:0;transform:scale(.9) translateY(8px);pointer-events:none;}
+  .tw-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+  .tw-h b{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-0.02em;}
+  .tw-h span{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);}
+  .tw-x{cursor:pointer;color:var(--ink-400);display:flex;}
+  .tw-grp{margin-top:18px;}
+  .tw-lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:9px;display:flex;justify-content:space-between;}
+  .tw-lbl em{font-style:normal;color:var(--ink-700);font-weight:600;}
+  .tw-seg{display:flex;gap:6px;}
+  .tw-seg button{flex:1;padding:9px 6px;border-radius:11px;border:2px solid var(--line-200);background:var(--cream-100);font-family:var(--font-body);font-weight:600;font-size:13px;color:var(--ink-500);cursor:pointer;transition:all .13s;}
+  .tw-seg button:hover{border-color:var(--ink-300);}
+  .tw-seg button[aria-pressed="true"]{background:var(--ink-900);color:var(--cream-100);border-color:var(--ink-900);}
+  .tw-sw{display:flex;gap:8px;}
+  .tw-sw button{flex:1;height:38px;border-radius:11px;border:2.5px solid var(--line-200);cursor:pointer;position:relative;transition:transform .12s;}
+  .tw-sw button:hover{transform:translateY(-2px);}
+  .tw-sw button[aria-pressed="true"]{border-color:var(--ink-900);box-shadow:2px 3px 0 var(--ink-900);}
+  .tw-sw button[aria-pressed="true"]::after{content:"";position:absolute;inset:0;margin:auto;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(16,32,30,.3);}
+  .tw-range{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:999px;background:var(--cream-300);outline:none;}
+  .tw-range::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--coral);border:2.5px solid var(--ink-900);cursor:pointer;box-shadow:1px 2px 0 var(--ink-900);}
+  .tw-range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--coral);border:2.5px solid var(--ink-900);cursor:pointer;}
+  .tw-reset{margin-top:18px;width:100%;padding:9px;border-radius:11px;border:2px dashed var(--line-200);background:transparent;font-family:var(--font-mono);font-size:12px;color:var(--ink-400);cursor:pointer;transition:all .13s;}
+  .tw-reset:hover{border-color:var(--ink-300);color:var(--ink-700);}
+</style>
+
+<button id="tw-fab" title="Personnaliser l'ambiance"><i data-lucide="sliders-horizontal" class="lucide"></i></button>
+<div id="tw-panel" class="hidden">
+  <div class="tw-h">
+    <div><span>// Ambiance</span><br><b>Réglages</b></div>
+    <span class="tw-x" id="tw-close"><i data-lucide="x" class="lucide"></i></span>
+  </div>
+
+  <div class="tw-grp">
+    <div class="tw-lbl">Caractère du trait <em id="tw-trait-v">Signature</em></div>
+    <div class="tw-seg" id="tw-trait">
+      <button data-v="doux">Doux</button>
+      <button data-v="signature">Signature</button>
+      <button data-v="franc">Franc</button>
+    </div>
+  </div>
+
+  <div class="tw-grp">
+    <div class="tw-lbl">Accent signature <em id="tw-acc-v">Corail</em></div>
+    <div class="tw-sw" id="tw-acc">
+      <button data-v="corail" style="background:#FF6F4E" title="Corail"></button>
+      <button data-v="bleu" style="background:#5B79F0" title="Bleu"></button>
+      <button data-v="lime" style="background:#8FCB4A" title="Lime"></button>
+      <button data-v="gold" style="background:#F5B23D" title="Or"></button>
+    </div>
+  </div>
+
+  <div class="tw-grp">
+    <div class="tw-lbl">Rondeur <em id="tw-round-v">Signature</em></div>
+    <input type="range" class="tw-range" id="tw-round" min="2" max="40" step="1" value="22">
+  </div>
+
+  <button class="tw-reset" id="tw-reset">Réinitialiser</button>
+</div>
+
+<script>
+(function(){
+  var DEF={trait:'signature',acc:'corail',round:22};
+  var KEY='sf-tweaks-index';
+  var state=Object.assign({},DEF);
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');state=Object.assign(state,s);}catch(e){}
+
+  var ACC={
+    corail:{name:'Corail',fill:'#FF6F4E',ink:'#C43D22',soft:'#FFE1D7',on:'#fff'},
+    bleu:  {name:'Bleu',  fill:'#5B79F0',ink:'#2A44B8',soft:'#DEE4FF',on:'#fff'},
+    lime:  {name:'Lime',  fill:'#8FCB4A',ink:'#4E7A19',soft:'#E4F2CE',on:'#10201E'},
+    gold:  {name:'Or',    fill:'#F5B23D',ink:'#B27400',soft:'#FCEBC4',on:'#10201E'}
+  };
+  var TRAITNAME={doux:'Doux',signature:'Signature',franc:'Franc'};
+
+  function traitCSS(t){
+    if(t==='doux') return [
+      '.offer,.art{border-width:1.5px!important;box-shadow:0 14px 32px -16px rgba(16,32,30,.26)!important;}',
+      '.offer.feat{box-shadow:0 18px 40px -16px rgba(16,32,30,.32)!important;}',
+      '.offer:hover,.art:hover{box-shadow:0 22px 46px -18px rgba(16,32,30,.34)!important;transform:translateY(-4px)!important;}',
+      '.statsband{border-width:1.5px!important;box-shadow:0 26px 62px -26px rgba(0,46,47,.6)!important;}',
+      '.menu{border-width:1.5px!important;box-shadow:0 16px 34px -14px rgba(16,32,30,.32)!important;}',
+      '.band{border-top-width:1.5px!important;border-bottom-width:1.5px!important;}',
+      '.btn-outline,.olink{border-width:1.5px!important;}'
+    ].join('');
+    if(t==='franc') return [
+      '.offer,.art{border-width:3px!important;box-shadow:8px 10px 0 var(--ink-900)!important;}',
+      '.offer.feat{box-shadow:11px 13px 0 var(--ink-900)!important;}',
+      '.offer:hover{box-shadow:11px 13px 0 var(--ink-900)!important;transform:translateY(-6px)!important;}',
+      '.art:hover{box-shadow:9px 11px 0 var(--ink-900)!important;transform:translateY(-6px)!important;}',
+      '.statsband{border-width:3px!important;box-shadow:13px 16px 0 var(--ink-900)!important;}',
+      '.menu{border-width:3px!important;box-shadow:7px 8px 0 var(--ink-900)!important;}',
+      '.band{border-top-width:3px!important;border-bottom-width:3px!important;}',
+      '.btn-outline,.olink{border-width:3px!important;}'
+    ].join('');
+    return '';
+  }
+
+  function accCSS(a){
+    var c=ACC[a];
+    return [
+      '.hero .ey{color:'+c.ink+'!important;}',
+      '.hero h1 .hl::after{background:'+c.fill+'!important;}',
+      '.btn-accent{background:'+c.fill+'!important;color:'+c.on+'!important;}',
+      '.offer.feat .obar{background:'+c.fill+'!important;}',
+      '.offer.feat .oe{color:'+c.ink+'!important;}',
+      '.offer.feat .olink{background:'+c.fill+'!important;color:'+c.on+'!important;border-color:'+c.fill+'!important;}',
+      '.tw-range::-webkit-slider-thumb{background:'+c.fill+'!important;}',
+      '.tw-range::-moz-range-thumb{background:'+c.fill+'!important;}',
+      '.tw-h span,.tw-x:hover{color:'+c.ink+';}'
+    ].join('');
+  }
+
+  function roundCSS(r){
+    var R=Number(r);
+    return [
+      '.offer,.art{border-radius:'+R+'px!important;}',
+      '.statsband,.nlcard{border-radius:'+Math.round(R*1.35)+'px!important;}',
+      '.menu{border-radius:'+Math.round(R*0.72)+'px!important;}'
+    ].join('');
+  }
+  function roundName(r){r=Number(r);return r<=8?'Vif':r<=18?'Sobre':r<=28?'Signature':'Rebondi';}
+
+  function apply(){
+    document.getElementById('tw-dyn').textContent=traitCSS(state.trait)+accCSS(state.acc)+roundCSS(state.round);
+    // reflect UI
+    document.querySelectorAll('#tw-trait button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===state.trait);});
+    document.querySelectorAll('#tw-acc button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===state.acc);});
+    document.getElementById('tw-trait-v').textContent=TRAITNAME[state.trait];
+    document.getElementById('tw-acc-v').textContent=ACC[state.acc].name;
+    document.getElementById('tw-round').value=state.round;
+    document.getElementById('tw-round-v').textContent=roundName(state.round);
+    try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+  }
+
+  document.getElementById('tw-trait').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;state.trait=b.dataset.v;apply();});
+  document.getElementById('tw-acc').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;state.acc=b.dataset.v;apply();});
+  document.getElementById('tw-round').addEventListener('input',function(e){state.round=e.target.value;apply();});
+  document.getElementById('tw-reset').addEventListener('click',function(){state=Object.assign({},DEF);apply();});
+
+  var panel=document.getElementById('tw-panel');
+  document.getElementById('tw-fab').addEventListener('click',function(){panel.classList.toggle('hidden');});
+  document.getElementById('tw-close').addEventListener('click',function(){panel.classList.add('hidden');});
+
+  apply();
+})();
+</script>
+
+<script>lucide.createIcons();</script>
+<script>
+(function(){
+  var el=document.querySelector('#contact .finalcta');
+  if(!el) return;
+  if(!('IntersectionObserver' in window)){el.classList.add('reveal');return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('reveal'); io.disconnect(); } });
+  },{threshold:0.25});
+  io.observe(el);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!-- @dsCard group="Site web" viewport="1280x820" name="Blog" subtitle="Liste d'articles du blog" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le blog — conseils pratico-pratiques — Superformateur</title>
+<meta name="description" content="Des idées concrètes sur la conception, l'animation et l'évaluation de tes formations. Écrit par Quentin Declercq.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Superformateur">
+<meta property="og:title" content="Le blog — conseils pratico-pratiques — Superformateur">
+<meta property="og:description" content="Des idées concrètes sur la conception, l'animation et l'évaluation de tes formations. Écrit par Quentin Declercq.">
+<meta property="og:image" content="assets/logo-mark.png">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="site.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 40px;}
+  .chip{font-family:var(--font-mono);font-size:13px;padding:8px 16px;border-radius:999px;border:2px solid var(--ink-900);cursor:pointer;background:transparent;color:var(--ink-900);transition:background .13s;}
+  .chip.on{background:var(--ink-900);color:var(--cream-100);}
+  .chip:hover{background:var(--cream-300);}
+  .chip.on:hover{background:var(--ink-900);}
+
+  /* featured */
+  .feat{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:26px;overflow:hidden;box-shadow:6px 8px 0 var(--ink-900);margin-bottom:44px;}
+  .feat .img{background:repeating-linear-gradient(135deg,var(--coral-soft) 0 18px,var(--cream-100) 18px 36px);border-right:2.5px solid var(--ink-900);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;color:var(--ink-400);min-height:320px;}
+  .feat .body{padding:44px;display:flex;flex-direction:column;gap:16px;justify-content:center;}
+  .feat .cat{align-self:flex-start;font-family:var(--font-mono);font-size:12px;padding:5px 13px;border-radius:999px;background:var(--coral-soft);color:var(--coral-ink);}
+  .feat h2{font-family:var(--font-display);font-weight:800;font-size:38px;line-height:1.04;letter-spacing:-0.025em;margin:0;}
+  .feat p{font-size:17px;line-height:1.6;color:var(--ink-500);margin:0;}
+  .feat .meta{display:flex;gap:10px;font-family:var(--font-mono);font-size:13px;color:var(--ink-400);}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .art{display:flex;flex-direction:column;background:var(--cream-50);border:2px solid var(--ink-900);border-radius:22px;overflow:hidden;transition:transform .24s var(--ease-spring),box-shadow .24s;}
+  .art:hover{transform:translateY(-5px);box-shadow:6px 8px 0 var(--ink-900);}
+  .art .thumb{height:150px;border-bottom:2px solid var(--ink-900);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;color:var(--ink-400);}
+  .art .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .cat{align-self:flex-start;font-family:var(--font-mono);font-size:11.5px;padding:4px 11px;border-radius:999px;}
+  .art h3{font-family:var(--font-display);font-weight:700;font-size:20px;line-height:1.14;margin:0;letter-spacing:-0.01em;}
+  .art p{font-size:14.5px;line-height:1.5;color:var(--ink-500);margin:0;flex:1;}
+  .art .meta{display:flex;gap:9px;font-family:var(--font-mono);font-size:12px;color:var(--ink-400);}
+  section{padding:8px 0 40px;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html"><img src="assets/logo-mark.png" alt="">Superformateur</a>
+    <nav class="navlinks">
+      <a href="index.html#accompagnement">L'accompagnement</a>
+      <a href="index.html#parcours">Le parcours</a>
+      <div class="hasmenu"><a href="blog.html">Ressources <i data-lucide="chevron-down" class="lucide" style="width:15px;height:15px"></i></a>
+        <div class="menu">
+          <a href="blog.html"><span class="mi" style="background:var(--lime-soft)"><i data-lucide="book-open" class="lucide" style="color:var(--lime-ink)"></i></span><span><b>Le blog</b><small style="display:block;font-size:12.5px;color:var(--ink-400);font-weight:400;font-family:var(--font-body);margin-top:3px;letter-spacing:0">Conseils pratico-pratiques.</small></span></a>
+          <a href="https://superformateur.substack.com" target="_blank" rel="noopener"><span class="mi" style="background:var(--gold-soft)"><i data-lucide="mail" class="lucide" style="color:var(--gold-ink)"></i></span><span><b>Superformateur</b><small style="display:block;font-size:12.5px;color:var(--ink-400);font-weight:400;font-family:var(--font-body);margin-top:3px;letter-spacing:0">La newsletter, chaque jeudi.</small></span></a>
+        </div>
+      </div>
+    </nav>
+    <a class="btn btn-accent" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve un appel</a>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <span class="ey">// Le blog</span>
+    <h1>Des conseils pratico-pratiques.</h1>
+    <p class="lead">Tout ce qu'on aurait aimé qu'on nous dise en démarrant : concevoir, animer, évaluer, et l'IA au service de la pédagogie. Concret et testable dès ta prochaine session.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="filters">
+      <button class="chip on">Tout</button>
+      <button class="chip">Conception</button>
+      <button class="chip">Animation</button>
+      <button class="chip">Évaluation</button>
+      <button class="chip">IA</button>
+      <button class="chip">Posture</button>
+    </div>
+
+    <a class="feat" href="article.html">
+      <div class="img" style="background:linear-gradient(135deg,#E4F2CE,#AED6D2 70%,#8FC7C3);padding:20px">
+        <svg viewBox="0 0 340 250" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Les trois gestes : concevoir, animer, évaluer">
+          <g stroke="#10201E" stroke-width="2.6" stroke-linejoin="round">
+            <ellipse cx="170" cy="212" rx="120" ry="18" fill="#004A4B" opacity=".16" stroke="none"/>
+            <polygon points="170,150 226,172 170,194 114,172" fill="#6FB3B0"/>
+            <polygon points="170,132 208,150 208,174 170,192 132,174 132,150" fill="#004A4B"/>
+            <polygon points="132,150 170,132 208,150 170,168" fill="#FFFEF6"/>
+            <polygon points="170,168 208,150 208,174 170,192" fill="#0A6B6B"/>
+            <polygon points="132,150 170,168 170,192 132,174" fill="#003D3E"/>
+            <path d="M170 74 L181 108 L214 96 L188 120 L221 130 L186 134 L200 166 L170 144 L140 166 L154 134 L119 130 L152 120 L126 96 L159 108 Z" fill="#F5B23D"/>
+            <circle cx="170" cy="120" r="9" fill="#FF6F4E"/>
+            <g>
+              <path d="M36 96 h64 a16 16 0 0 1 16 16 v20 a16 16 0 0 1 -16 16 h-30 l-16 15 v-15 h-18 a16 16 0 0 1 -16 -16 v-20 a16 16 0 0 1 16 -16 Z" fill="#8FCB4A"/>
+              <circle cx="54" cy="122" r="3.6" fill="#10201E" stroke="none"/>
+              <circle cx="70" cy="122" r="3.6" fill="#10201E" stroke="none"/>
+              <circle cx="86" cy="122" r="3.6" fill="#10201E" stroke="none"/>
+            </g>
+            <g>
+              <rect x="240" y="150" width="24" height="34" rx="4" fill="#6FB3B0"/>
+              <rect x="268" y="132" width="24" height="52" rx="4" fill="#0A6B6B"/>
+              <rect x="296" y="110" width="24" height="74" rx="4" fill="#F5B23D"/>
+              <circle cx="308" cy="92" r="12" fill="#FF6F4E"/>
+              <path d="M302 92 l4 5 l8 -10" fill="none" stroke="#FFFEF6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </g>
+          <g stroke="#10201E" stroke-width="2" stroke-linecap="round">
+            <circle cx="250" cy="60" r="5" fill="#FF6F4E"/>
+            <path d="M96 54 l7 0 M99.5 50.5 l0 7" fill="none"/>
+          </g>
+        </svg>
+      </div>
+      <div class="body">
+        <span class="cat">Les 3 gestes · à la une</span>
+        <h2>Une formation qui plaît n'est pas une formation qui transforme</h2>
+        <p>On juge encore une formation à l'ambiance dans la salle. Pourtant, ce qui la rend vraiment utile tient à trois gestes qu'on peut apprendre — du plan de séquence au suivi post-formation.</p>
+        <div class="meta"><span>24 juin 2026</span><span>·</span><span>8 min de lecture</span></div>
+      </div>
+    </a>
+
+    <div class="grid">
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#E4F2CE,#C9E39B);padding:0"><svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Une cible atteinte par une flèche"><g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round"><ellipse cx="176" cy="128" rx="86" ry="14" fill="#4E7A19" opacity=".18" stroke="none"/><ellipse cx="176" cy="86" rx="66" ry="34" fill="#8FCB4A"/><ellipse cx="176" cy="86" rx="42" ry="21" fill="#FFFEF6"/><ellipse cx="176" cy="86" rx="18" ry="9" fill="#FF6F4E"/><path d="M304 26 L182 82" fill="none" stroke-width="3" stroke-linecap="round"/><path d="M304 26 l-17 3 l6 15 Z" fill="#F5B23D"/><circle cx="182" cy="82" r="4" fill="#10201E" stroke="none"/></g><g stroke="#10201E" stroke-width="2" stroke-linecap="round"><path d="M70 46 l7 0 M73.5 42.5 l0 7" fill="none"/><circle cx="304" cy="104" r="4.5" fill="#FF6F4E"/></g></svg></div>
+        <div class="body"><span class="cat" style="background:var(--lime-soft);color:var(--lime-ink)">Conception</span><h3>Concevoir à l'envers : pars de l'évaluation, pas du contenu</h3><p>La logique qui élimine le superflu : d'abord la preuve, ensuite l'activité, puis le strict savoir nécessaire.</p><div class="meta"><span>20 juin</span><span>·</span><span>7 min</span></div></div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#FFE1D7,#FFB9A6);padding:0"><svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Étincelle jaillissant d'un socle"><g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round"><ellipse cx="180" cy="132" rx="82" ry="15" fill="#005253" opacity=".18" stroke="none"/><polygon points="180,84 250,112 180,140 110,112" fill="#6FB3B0"/><polygon points="180,66 224,84 224,112 180,130 136,112 136,84" fill="#004A4B"/><polygon points="136,84 180,66 224,84 180,102" fill="#FFFEF6"/><polygon points="180,102 224,84 224,112 180,130" fill="#0A6B6B"/><polygon points="136,84 180,102 180,130 136,112" fill="#003D3E"/><path d="M180 8 L192 44 L228 30 L200 58 L236 66 L198 72 L214 106 L180 82 L146 106 L162 72 L124 66 L160 58 L132 30 L168 44 Z" fill="#F5B23D"/><circle cx="180" cy="58" r="9" fill="#FF6F4E"/></g><g stroke="#10201E" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="272" cy="42" r="5" fill="#FF6F4E"/><circle cx="96" cy="52" r="4" fill="#8FCB4A"/></g></svg></div>
+        <div class="body"><span class="cat" style="background:var(--coral-soft);color:var(--coral-ink)">Animation</span><h3>Les 3 premières minutes qui décident de l'engagement</h3><p>Comment ouvrir une séquence pour capter l'attention dès le début — et l'ouverture à éviter absolument.</p><div class="meta"><span>17 juin</span><span>·</span><span>6 min</span></div></div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#FCEBC4,#F5D089);padding:0"><svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Histogramme surmonté d'une coche"><g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round"><ellipse cx="180" cy="136" rx="104" ry="12" fill="#B27400" opacity=".2" stroke="none"/><rect x="100" y="92" width="44" height="40" rx="6" fill="#6FB3B0"/><ellipse cx="122" cy="92" rx="22" ry="7" fill="#AED6D2"/><rect x="158" y="70" width="44" height="62" rx="6" fill="#0A6B6B"/><ellipse cx="180" cy="70" rx="22" ry="7" fill="#2C8A89"/><rect x="216" y="46" width="44" height="86" rx="6" fill="#F5B23D"/><ellipse cx="238" cy="46" rx="22" ry="7" fill="#FCEBC4"/><circle cx="238" cy="24" r="14" fill="#FF6F4E"/><path d="M231 24 l5 5 l9 -11" fill="none" stroke="#FFFEF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+        <div class="body"><span class="cat" style="background:var(--gold-soft);color:var(--gold-ink)">Évaluation</span><h3>Aller plus loin que le sourire de fin de session</h3><p>Les 4 niveaux de Kirkpatrick, et les deux gestes simples pour enfin mesurer le niveau qui compte : le comportement.</p><div class="meta"><span>12 juin</span><span>·</span><span>8 min</span></div></div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#DEE4FF,#B9C6F5);padding:0"><svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Cube IA avec une étincelle"><g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round"><ellipse cx="172" cy="134" rx="74" ry="12" fill="#2A44B8" opacity=".18" stroke="none"/><polygon points="172,54 220,80 220,120 172,146 124,120 124,80" fill="#2A44B8"/><polygon points="124,80 172,54 220,80 172,106" fill="#5B79F0"/><polygon points="172,106 220,80 220,120 172,146" fill="#3F59D8"/><polygon points="124,80 172,106 172,146 124,120" fill="#24379E"/><circle cx="156" cy="80" r="3" fill="#FFFEF6" stroke-width="1.6"/><circle cx="188" cy="80" r="3" fill="#FFFEF6" stroke-width="1.6"/><path d="M156 80 L172 88 L188 80" fill="none" stroke-width="1.8"/><path d="M276 40 l6 18 l18 -6 l-14 12 l14 12 l-18 -4 l-6 18 l-6 -18 l-18 4 l14 -12 l-14 -12 l18 6 Z" fill="#F5B23D"/></g><g stroke="#10201E" stroke-width="2" stroke-linecap="round"><circle cx="86" cy="50" r="4.5" fill="#FF6F4E"/></g></svg></div>
+        <div class="body"><span class="cat" style="background:var(--blue-soft);color:var(--blue-ink)">IA</span><h3>Intégrer l'IA à sa conception sans perdre le fil pédagogique</h3><p>Où l'IA fait vraiment gagner du temps en conception, animation et évaluation — et où elle dessert.</p><div class="meta"><span>6 juin</span><span>·</span><span>9 min</span></div></div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#DCEBE8,#AED6D2);padding:0"><svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Deux bulles de dialogue face à face"><g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round"><ellipse cx="180" cy="134" rx="96" ry="13" fill="#4E7A19" opacity=".18" stroke="none"/><path d="M96 40 h96 a20 20 0 0 1 20 20 v30 a20 20 0 0 1 -20 20 h-40 l-20 20 v-20 h-36 a20 20 0 0 1 -20 -20 v-30 a20 20 0 0 1 20 -20 Z" fill="#8FCB4A"/><circle cx="116" cy="75" r="4.5" fill="#10201E" stroke="none"/><circle cx="144" cy="75" r="4.5" fill="#10201E" stroke="none"/><circle cx="172" cy="75" r="4.5" fill="#10201E" stroke="none"/><path d="M238 74 h56 a16 16 0 0 1 16 16 v18 a16 16 0 0 1 -16 16 h-32 l-16 16 v-16 h-8 a16 16 0 0 1 -16 -16 v-18 a16 16 0 0 1 16 -16 Z" fill="#FFFEF6"/><path d="M258 100 l8 8 l16 -18" fill="none" stroke="#4E7A19" stroke-width="3" stroke-linecap="round"/></g></svg></div>
+        <div class="body"><span class="cat" style="background:var(--teal-100);color:var(--teal-700)">Posture</span><h3>De sachant à facilitateur : déplacer sa posture</h3><p>Le formateur qui déverse fatigue ; le facilitateur fait produire. Comment opérer le glissement, concrètement.</p><div class="meta"><span>30 mai</span><span>·</span><span>5 min</span></div></div>
+      </a>
+      <a class="art" href="article.html">
+        <div class="thumb" style="background:linear-gradient(160deg,#E4F2CE,#C9E39B);padding:0"><svg viewBox="0 0 360 150" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Un canevas structuré en grille"><g stroke="#10201E" stroke-width="2.4" stroke-linejoin="round"><ellipse cx="182" cy="132" rx="84" ry="12" fill="#4E7A19" opacity=".18" stroke="none"/><rect x="134" y="44" width="108" height="78" rx="6" fill="#6FB3B0"/><rect x="120" y="32" width="112" height="82" rx="6" fill="#FFFEF6"/><path d="M120 56 h112 M120 80 h112 M120 104 h112 M176 32 v82" fill="none" stroke-width="1.6"/><rect x="128" y="40" width="40" height="9" rx="3" fill="#F5B23D"/><path d="M186 68 l6 6 l12 -14" fill="none" stroke="#4E7A19" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#10201E" stroke-width="2" stroke-linecap="round"><circle cx="300" cy="52" r="4.5" fill="#FF6F4E"/></g></svg></div>
+        <div class="body"><span class="cat" style="background:var(--lime-soft);color:var(--lime-ink)">Conception</span><h3>Le canevas de séquence qui structure n'importe quelle formation</h3><p>Un modèle réutilisable pour passer d'un objectif à une activité — le même qu'on remet à nos participants.</p><div class="meta"><span>23 mai</span><span>·</span><span>7 min</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <div class="wrap">
+    <div style="background:var(--ink-900);border-radius:32px;padding:52px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:13px;color:var(--gold);margin-bottom:12px;"><i data-lucide="mail" class="lucide"></i> Newsletter Substack</span>
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.05;letter-spacing:-0.025em;color:var(--cream-100);margin:0;max-width:20ch;">Reçois le meilleur chaque jeudi.</h2>
+      </div>
+      <iframe src="https://superformateur.substack.com/embed" title="Abonne-toi à la newsletter Superformateur" style="width:480px;max-width:100%;height:150px;border:2px solid var(--teal-400);border-radius:16px;background:#fff" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><img src="assets/logo-mark.png" alt="">Superformateur</div>
+        <p style="color:var(--teal-200);font-size:15.5px;line-height:1.6;max-width:34ch;margin:18px 0 0">Pour celles et ceux qui ont une expertise à transmettre, une valeur à faire reconnaître, et l'envie d'en vivre pleinement.</p>
+      </div>
+      <div class="fcol"><h4>Accompagnement</h4><a href="accompagnements-independants.html">L'accompagnement</a><a href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserver un appel</a><a href="accompagnements-entreprises.html">Vous êtes une entreprise ?</a></div>
+      <div class="fcol"><h4>Ressources</h4><a href="blog.html">Blog</a><a href="https://superformateur.substack.com" target="_blank" rel="noopener">Newsletter</a><a href="about.html">Cas clients</a></div>
+      <div class="fcol"><h4>Superformateur</h4><a href="about.html">À propos</a><a href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Contact</a><a href="https://www.linkedin.com/company/superformateur-nl/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 Superformateur</span><span>Fait avec soin, pour les formateurs.</span></div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
+</script>
+</body>
+</html>

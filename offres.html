@@ -1,0 +1,130 @@
+<!-- @dsCard group="Site web" viewport="1280x820" name="Accompagnements (pivot)" subtitle="Page-pivot : aiguillage par cible" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nos accompagnements — Superformateur</title>
+<meta name="description" content="Formateur indépendant ou entreprise : l'accompagnement Superformateur s'adapte à ta cible. Choisis ton profil pour découvrir ton parcours.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Superformateur">
+<meta property="og:title" content="Nos accompagnements — Superformateur">
+<meta property="og:description" content="Formateur indépendant ou entreprise : l'accompagnement Superformateur s'adapte à ta cible. Choisis ton profil pour découvrir ton parcours.">
+<meta property="og:image" content="assets/logo-mark.png">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="site.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  section{padding:24px 0 60px;}
+  .shead{text-align:center;max-width:58ch;margin:0 auto 40px;}
+  .shead h2{font-family:var(--font-display);font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-0.025em;margin:0 0 12px;}
+  .shead p{font-size:18px;line-height:1.6;color:var(--ink-500);margin:0;}
+
+  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+  .offer{display:flex;flex-direction:column;gap:14px;padding:30px;background:var(--cream-50);border:2.5px solid var(--ink-900);border-radius:24px;box-shadow:0 6px 20px -8px rgba(16,32,30,.18);transition:transform .24s var(--ease-spring),box-shadow .24s;}
+  .offer:hover{transform:translateY(-5px);box-shadow:6px 8px 0 var(--ink-900);}
+  .offer.feat{box-shadow:6px 8px 0 var(--ink-900);position:relative;}
+  .obar{height:9px;width:56px;border-radius:999px;}
+  .oe{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;}
+  .offer h3{font-family:var(--font-display);font-weight:700;font-size:27px;line-height:1.05;letter-spacing:-0.02em;margin:0;}
+  .offer p{font-size:15.5px;line-height:1.55;color:var(--ink-500);margin:0;flex:1;}
+  .feats{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;}
+  .feats li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;color:var(--ink-700);}
+  .feats .lucide{margin-top:2px;flex-shrink:0;}
+  .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-family:var(--font-mono);font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;border:2px solid var(--ink-900);white-space:nowrap;}
+  .uc{font-family:var(--font-mono);font-size:11px;padding:3px 9px;border-radius:999px;background:var(--cream-300);color:var(--ink-700);}
+
+  /* Pour qui */
+  .who2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .wcard{display:flex;flex-direction:column;gap:16px;padding:36px;border:2.5px solid var(--ink-900);border-radius:26px;box-shadow:6px 8px 0 var(--ink-900);transition:transform .2s var(--ease-spring);text-decoration:none;}
+  .wcard:hover{transform:translateY(-4px);}
+  .wcard .wi{width:52px;height:52px;border-radius:15px;border:2px solid var(--ink-900);display:flex;align-items:center;justify-content:center;}
+  .wcard h3{font-family:var(--font-display);font-weight:800;font-size:26px;letter-spacing:-0.02em;margin:0;color:var(--ink-900);}
+  .wcard p{font-size:15.5px;line-height:1.55;margin:0;flex:1;}
+  .wcard .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--ink-900);}
+  .wc-inde{background:var(--coral-soft);}
+  .wc-ent{background:var(--teal-100);}
+
+  .cta{background:var(--teal-600);border:2.5px solid var(--ink-900);border-radius:32px;box-shadow:8px 10px 0 var(--ink-900);padding:52px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
+  .cta h2{font-family:var(--font-display);font-weight:800;font-size:36px;line-height:1.04;letter-spacing:-0.025em;color:var(--cream-100);margin:0;max-width:20ch;}
+  .cta p{color:var(--teal-200);font-size:16px;line-height:1.5;margin:12px 0 0;max-width:42ch;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html"><img src="assets/logo-mark.png" alt="">Superformateur</a>
+    <nav class="navlinks">
+      <div class="hasmenu"><a href="accompagnements-independants.html" class="active">Accompagnement <i data-lucide="chevron-down" class="lucide" style="width:15px;height:15px"></i></a>
+        <div class="menu">
+          <a href="accompagnements-independants.html"><span class="mi" style="background:var(--coral-soft)"><i data-lucide="graduation-cap" class="lucide" style="color:var(--coral-ink)"></i></span><span><b>L'accompagnement</b><small style="display:block;font-size:12.5px;color:var(--ink-400);font-weight:400;font-family:var(--font-body);margin-top:3px;letter-spacing:0">Pédagogie + business, en un seul parcours.</small></span></a>
+          <a href="accompagnements-entreprises.html" style="border-top:1.5px solid var(--line-100);margin-top:4px;padding-top:14px"><span class="mi" style="background:var(--teal-100)"><i data-lucide="building-2" class="lucide" style="color:var(--teal-700)"></i></span><span><b>Vous êtes une entreprise ?</b><small style="display:block;font-size:12.5px;color:var(--ink-400);font-weight:400;font-family:var(--font-body);margin-top:3px;letter-spacing:0">Former vos formateurs internes.</small></span></a>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="https://superformateur.substack.com" target="_blank" rel="noopener">Newsletter</a>
+      <a href="about.html">À propos</a>
+    </nav>
+    <a class="btn btn-accent" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve un appel</a>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <span class="ey">// Accompagnements</span>
+    <h1>À qui t'adresses-tu&nbsp;?</h1>
+    <p class="lead">L'accompagnement n'est pas le même selon que tu formes en solo ou que tu outilles les formateurs d'une organisation. Choisis ta voie avec le même niveau d'exigence des deux côtés.</p>
+  </div>
+</div>
+
+<section id="pour-qui" style="padding-top:8px">
+  <div class="wrap">
+    <div class="who2">
+      <a class="wcard wc-inde" href="accompagnements-independants.html">
+        <div class="wi" style="background:var(--coral)"><i data-lucide="user" class="lucide" style="color:#fff"></i></div>
+        <h3>Je forme en solo</h3>
+        <p style="color:var(--ink-700)">Gagne ta vie grâce à ton savoir : deviens un formateur incontournable et reconnu dans ton expertise.</p>
+        <span class="go">Voir l'accompagnement <i data-lucide="arrow-right" class="lucide"></i></span>
+      </a>
+      <a class="wcard wc-ent" href="accompagnements-entreprises.html">
+        <div class="wi" style="background:var(--teal-600)"><i data-lucide="building-2" class="lucide" style="color:var(--cream-100)"></i></div>
+        <h3>Je forme mes équipes</h3>
+        <p style="color:var(--ink-700)">Outiller tes formateurs internes en intra, sur-mesure : du cas d'usage ciblé au parcours complet avec l'IA.</p>
+        <span class="go">Voir l'accompagnement <i data-lucide="arrow-right" class="lucide"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Pas sûr de ton parcours&nbsp;?</h2>
+        <p>15 minutes en visio, sans engagement, pour trouver le parcours qui te correspond.</p>
+      </div>
+      <a class="btn btn-accent btn-lg" href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserve ton appel <i data-lucide="arrow-right" class="lucide"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><img src="assets/logo-mark.png" alt="">Superformateur</div>
+        <p style="color:var(--teal-200);font-size:15.5px;line-height:1.6;max-width:34ch;margin:18px 0 0">Pour celles et ceux qui ont une expertise à transmettre, une valeur à faire reconnaître, et l'envie d'en vivre pleinement.</p>
+      </div>
+      <div class="fcol"><h4>Accompagnement</h4><a href="accompagnements-independants.html">L'accompagnement</a><a href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Réserver un appel</a><a href="accompagnements-entreprises.html">Vous êtes une entreprise ?</a></div>
+      <div class="fcol"><h4>Ressources</h4><a href="blog.html">Blog</a><a href="https://superformateur.substack.com" target="_blank" rel="noopener">Newsletter Substack</a><a href="about.html">À propos</a></div>
+      <div class="fcol"><h4>Superformateur</h4><a href="about.html">Notre approche</a><a href="https://tally.so/r/A757OW" target="_blank" rel="noopener">Contact</a><a href="https://www.linkedin.com/company/superformateur-nl/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 Superformateur</span><span>Fait avec soin, pour les formateurs.</span></div>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
